@@ -4,7 +4,7 @@ export default () => (
     <style js="true">{`
     .search-bar{
     padding: 10px;
-    width: 86%;
+    width: 89%;
     margin: 0px;
     padding-left: 22px;
     }
