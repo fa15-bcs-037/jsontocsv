@@ -29,18 +29,52 @@ export default()=>
             // this.classList.toggle("fas fa-caret-down");
         }
     };
+    const [frontEndTeamBackup, setFrontEndTeamBackup] = useState([]);
+    const searchHandler = (value) => {
+        if (frontEndTeamBackup.length === 0) {
+            setFrontEndTeamBackup([...dataa]);
+        }
+        setdata([...frontEndTeamBackup.filter(dataa => dataa.firstName.toLowerCase().indexOf(value.toLowerCase()) !== -1)])
+
+    };
     return (
         <>
-        <div>
-            <CSVLink data={dataa}>  <button className="EXPORT-btn" onClick={() => {}}> EXPORT DATA</button></CSVLink>
+        <div className="d-flex">
+            <input className="search-bar" placeholder="SEARCH BY NAME"
+                   type="text" onChange={event => {searchHandler(event.target.value)}}/>
+            <CSVLink data={dataa}><button className="EXPORT-btn" onClick={() => {CSVLink(dataa)}}> EXPORT DATA</button></CSVLink>
         </div>
+
         <div className="">
             <div className="header">
-                <div onClick={()=>sortBy('firstName')}>{nameSortType&&nameSortType==="ASC"?"firstName":"firstName"}</div>
-                <div onClick={() => sortBy('lastName')}>{nameSortType&&nameSortType==="ASC"?"lastName":"lastName"}</div>
-                <div style={{paddingLeft:'5%'}} onClick={() => sortBy('email')}>{nameSortType&&nameSortType==="ASC"?"Email":"Email"}</div>
-                <div onClick={() => sortBy('phone')}>{nameSortType&&nameSortType==="ASC"?"Phone":"Phone"}</div>
-                <div onClick={() => sortBy('postBody')}>{nameSortType&&nameSortType==="ASC"?"postBody":"postBody"}</div>
+                <div onClick={()=>sortBy('firstName')}>
+                    {nameSortType&&nameSortType==="ASC"?
+                        <div className="fas fa-caret-up">FIRST-NAME</div>:
+                        <div className="fas fa-caret-down">FIRST-NAME</div>}
+                </div>
+                <div onClick={() => sortBy('lastName')}>
+                    {nameSortType&&nameSortType==="ASC"?
+                        <div className="fas fa-caret-up">LAST-NAME</div>:
+                        <div className="fas fa-caret-down">LAST-NAME</div>}
+
+                </div>
+                <div style={{paddingLeft:'5%'}} onClick={() => sortBy('email')}>
+                    {nameSortType&&nameSortType==="ASC"?
+                    <div className="fas fa-caret-up">EMAIL</div>:
+                    <div className="fas fa-caret-down">EMAIL</div>}
+
+                </div>
+                <div onClick={() => sortBy('phone')}>
+                    {nameSortType&&nameSortType==="ASC"?
+                    <div className="fas fa-caret-up">PHONE</div>:
+                    <div className="fas fa-caret-down">PHONE</div>}
+                </div>
+                <div onClick={() => sortBy('postBody')}>
+                    {nameSortType&&nameSortType==="ASC"?
+                    <div className="fas fa-caret-up">POST-BODY</div>:
+                    <div className="fas fa-caret-down">POST-BODY</div>}
+
+                </div>
             </div>
             <TablePagination
                 data={dataa}

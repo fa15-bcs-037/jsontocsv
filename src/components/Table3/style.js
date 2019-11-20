@@ -2,10 +2,17 @@
 import React from 'react';
 export default () => (
     <style js="true">{`
+    .search-bar{
+    padding: 10px;
+    width: 86%;
+    margin: 0px;
+    padding-left: 22px;
+    }
 .EXPORT-btn{
-margin-left: 90%;
-    height: 46px;
-    width: 10%;    }
+height: 44px;
+    width: 146px;
+    margin-bottom: 10px;
+   }
 .react-pagination-table .table {
 padding:0px!important;
 display: flex!important;
@@ -50,7 +57,7 @@ flex: 1;
 
 }
 .header div:nth-child(1){
-padding-left:50px;
+padding-left: 12px;
 }
 
 .header div:nth-child(6){
@@ -79,6 +86,9 @@ margin-block-end: 1em;
 margin-inline-start: 0px;
 margin-inline-end: 0px;
 padding-inline-start: 40px;
+}
+.clearfix{
+TEXT-ALIGN: CENTER;
 }
 `}</style>
 );

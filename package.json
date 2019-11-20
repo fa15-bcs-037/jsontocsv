@@ -10,7 +10,8 @@
     "react-dom": "^16.12.0",
     "react-js-pagination": "^3.0.2",
     "react-pagination-table": "^2.0.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "FortAwesome/Font-Awesome": "*"
   },
   "scripts": {
     "start": "react-scripts start",
